@@ -1,0 +1,49 @@
+<div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+    <form method="POST" action="/register" id="registerForm" novalidate>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="firstName" class="form-label">Prénom</label>
+                <input type="text" class="form-control" id="firstName" name="firstname" required>
+                <div class="invalid-feedback">Veuillez entrer votre prénom.</div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="lastName" class="form-label">Nom</label>
+                <input type="text" class="form-control" id="lastName" name="lastname" required>
+                <div class="invalid-feedback">Veuillez entrer votre nom.</div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="registerUsername" class="form-label">Nom d'utilisateur</label>
+            <input type="text" class="form-control" id="registerUsername" name="username" required>
+            <div class="invalid-feedback">Veuillez choisir un nom d'utilisateur.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+            <div class="invalid-feedback">Veuillez entrer une adresse email valide.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="phone" class="form-label">Téléphone (optionnel)</label>
+            <input type="tel" class="form-control" id="phone" name="phone_number">
+        </div>
+
+        <div class="mb-3">
+            <label for="registerPassword" class="form-label">Mot de passe</label>
+            <input type="password" class="form-control" id="registerPassword" name="password" required>
+            <div class="invalid-feedback">Veuillez entrer un mot de passe.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Confirmer le mot de passe</label>
+            <input type="password" class="form-control" id="confirmPassword" required>
+            <div class="invalid-feedback">Les mots de passe ne correspondent pas.</div>
+        </div>
+
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-dark btn-lg">S'inscrire</button>
+        </div>
+    </form>
+</div>

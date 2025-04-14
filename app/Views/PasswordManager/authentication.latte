@@ -1,8 +1,19 @@
 {layout layouts/main.latte}
 
-{varType string $title}
-
 {block content}
-    <h1 class="mt-5">{$title}</h1>
-    <p>{localize("strings.welcome")}</p>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                {include 'layouts/components/header.latte'}
+
+            {include 'layouts/components/tabs.latte'}
+                <div class="tab-content p-3 border border-top-0 rounded-bottom shadow-sm bg-white" id="authTabsContent">
+                    {include 'layouts/components/login.latte'}
+                {include 'layouts/components/register.latte'}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {include 'layouts/components/auth-validator.latte'}
 {/block}

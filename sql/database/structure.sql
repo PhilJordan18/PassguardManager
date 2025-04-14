@@ -10,6 +10,14 @@ CREATE TABLE Users (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE Tokens (
+    id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES Users(id) ON DELETE CASCADE,
+    token TEXT UNIQUE NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    expires_at TIMESTAMP NOT NULL CHECK (expires_at > created_at),
+    revoked BOOLEAN DEFAULT FALSE
+);
 
 CREATE TABLE Applications(
     id SERIAL PRIMARY KEY,

@@ -1,5 +1,6 @@
 {
   "strings": {
-    "welcome": "Une page magnifique ❤️"
+    "welcome": "Une page magnifique ❤️",
+    "authentication": "Connectez-vous"
   }
 }
