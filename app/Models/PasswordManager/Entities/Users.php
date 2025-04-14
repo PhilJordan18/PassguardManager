@@ -2,7 +2,9 @@
 
 namespace Models\PasswordManager\Entities;
 
-class Users
+use Models\Core\Entity;
+
+class Users extends Entity
 {
     public int $id;
     public string $firstName;

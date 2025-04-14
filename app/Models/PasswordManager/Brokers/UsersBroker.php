@@ -4,6 +4,7 @@ namespace Models\PasswordManager\Brokers;
 
 use Models\PasswordManager\Entities\Users;
 use Zephyrus\Database\DatabaseBroker;
+use Zephyrus\Security\Cryptography;
 
 class UsersBroker extends DatabaseBroker
 {
@@ -17,6 +18,7 @@ class UsersBroker extends DatabaseBroker
 
     public function insert(Users $user): int
     {
+        $hashedPassword = Cryptography::hashPassword($user->password);
         return $this->selectSingle(
             "INSERT INTO users(firstname, lastname, username, password, email, phone_number, created_at, updated_at)
          VALUES(?, ?, ?, ?, ?, ?, NOW(), NOW())
@@ -25,7 +27,7 @@ class UsersBroker extends DatabaseBroker
                 $user->firstName,
                 $user->lastName,
                 $user->username,
-                $user->password,
+                $hashedPassword,
                 $user->email,
                 $user->phone_number
             ]
@@ -33,13 +35,14 @@ class UsersBroker extends DatabaseBroker
     }
 
     public function update(Users $old, Users $new): int {
+        $updatedPassword = !empty($new->password) ? Cryptography::hash($new->password) : $old->password;
         $this->query("UPDATE users SET firsname = ?, lastname = ?, username = ?, password = ?, email = ?, phone_number = ?, updated_at = NOW()
                                         WHERE id = ?",
         [
             $new->firstName,
             $new->lastName,
             $new->username,
-            $new->password,
+            $updatedPassword,
             $new->email,
             $new->phone_number,
             $new->updated_at,

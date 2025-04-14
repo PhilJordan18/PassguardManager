@@ -2,7 +2,9 @@
 
 namespace Models\PasswordManager\Entities;
 
-class Accounts
+use Models\Core\Entity;
+
+class Accounts extends Entity
 {
     public int $id;
     public int $user_id;

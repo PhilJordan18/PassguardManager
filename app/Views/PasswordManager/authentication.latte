@@ -4,16 +4,16 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
-                {include 'layouts/components/header.latte'}
+                {include 'layouts/components/authenticate/header.latte'}
 
-            {include 'layouts/components/tabs.latte'}
+            {include 'layouts/components/authenticate/tabs.latte'}
                 <div class="tab-content p-3 border border-top-0 rounded-bottom shadow-sm bg-white" id="authTabsContent">
-                    {include 'layouts/components/login.latte'}
-                {include 'layouts/components/register.latte'}
+                    {include 'layouts/components/authenticate/login.latte'}
+                {include 'layouts/components/authenticate/register.latte'}
                 </div>
             </div>
         </div>
     </div>
 
-    {include 'layouts/components/auth-validator.latte'}
+    {include 'layouts/components/authenticate/auth-validator.latte'}
 {/block}

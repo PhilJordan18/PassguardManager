@@ -46,7 +46,7 @@ class TokenBroker extends DatabaseBroker
         return $this->getLastAffectedCount();
     }
 
-    public function findByValue(string $token): ?stdClass
+    public function findByValue(string $token): \stdClass
     {
         return $this->selectSingle("SELECT * FROM tokens WHERE token = ?", [$token]);
     }
