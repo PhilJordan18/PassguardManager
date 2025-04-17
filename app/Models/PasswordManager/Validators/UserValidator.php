@@ -30,12 +30,6 @@ class UserValidator
             Rule::regex("/[A-Z]/", localize("errors.password.uppercase")),
             Rule::regex("/[0-9]/", localize("errors.password.digit"))
         ]);
-        $form->field("balance", [
-            Rule::decimal(localize("errors.money"))
-        ]);
-        $form->field("type", [
-            Rule::inArray(['NORMAL', 'PREMIUM'], localize("errors.invalid_type"))
-        ]);
 
         if (!$form->verify()) {
             throw new FormException($form);

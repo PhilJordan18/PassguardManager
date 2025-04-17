@@ -1,5 +1,11 @@
+{varType string $error}
+
 <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
     <form method="POST" action="/register" id="registerForm" novalidate>
+
+        {if isset($error)}
+            <div class="alert alert-danger">{$error}</div>
+        {/if}
         <div class="row">
             <div class="col-md-6 mb-3">
                 <label for="firstName" class="form-label">Prénom</label>

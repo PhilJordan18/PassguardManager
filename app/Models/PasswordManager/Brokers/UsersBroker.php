@@ -57,4 +57,9 @@ class UsersBroker extends DatabaseBroker
         return $this->getLastAffectedCount();
     }
 
+    public function findByName(string $username)
+    {
+        return $this->selectSingle("SELECT * FROM users WHERE username = ?", [$username]);
+    }
+
 }
