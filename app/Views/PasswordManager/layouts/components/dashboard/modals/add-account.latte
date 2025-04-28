@@ -1,0 +1,46 @@
+<div class="modal fade" id="addAccountModal" tabindex="-1" aria-labelledby="addAccountModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="addAccountModalLabel">Ajouter un compte</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addAccountForm">
+                    <div class="mb-3">
+                        <label for="appSelect" class="form-label">Application</label>
+                        <select class="form-select" id="appSelect" required>
+                            <option value="">Sélectionner une application</option>
+                            <option value="google">Google</option>
+                            <option value="facebook">Facebook</option>
+                            <option value="twitter">Twitter</option>
+                            <option value="other">Autre</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="accountUsername" class="form-label">Nom d'utilisateur/Email</label>
+                        <input type="text" class="form-control" id="accountUsername" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="accountPassword" class="form-label">Mot de passe</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="accountPassword" required>
+                            <button class="btn btn-outline-secondary" type="button" id="generatePassword">
+                                <i class="bi bi-key"></i> Générer
+                            </button>
+                        </div>
+                        <div class="form-text">Utilisez notre générateur pour créer un mot de passe sécurisé</div>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="shareAccount">
+                        <label class="form-check-label" for="shareAccount">Partager ce compte</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                <button type="button" class="btn btn-primary">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+</div>

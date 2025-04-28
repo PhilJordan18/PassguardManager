@@ -6,6 +6,10 @@
     "csrf_invalid": "La requête n'a pas été traitée correctement puisqu'un jeton de sécurité est invalide (possiblement expiré). Réessayez de nouveau et si le problème persiste, veuillez contacter un administrateur.",
     "intrusion_detected": "Une tentative d'intrusion a été détectée 😥. Cet incident a été notifié aux administrateurs.",
     "required": "Ne doit pas être vide.",
-    "money": "Doit être un format monétaire."
+    "money": "Doit être un format monétaire.",
+    "password.min_length": "Votre mot de passe doit avoir au moins 8 caractères",
+    "password.lowercase": "Votre mot de passe doit avoir au moins 1 caractère en miniscule",
+    "password.uppercase": "Votre mot de passe doit avoir au moins 1 caractère en majiscule",
+    "password.digit": "Votre mot de passe doit avoir au moins 1 chiffre"
   }
 }

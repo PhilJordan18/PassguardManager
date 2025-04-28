@@ -4,6 +4,7 @@ namespace Controllers\PasswordManager;
 
 use Controllers\Controller;
 use DateMalformedStringException;
+use Exception;
 use Models\PasswordManager\Services\TokenServices;
 use Models\PasswordManager\Services\UserServices;
 use Models\PasswordManager\Validators\UserValidator;
@@ -32,7 +33,7 @@ class AuthenticationController extends Controller
 
         if (!$form->verify()) {
             return $this->render('PasswordManager/authentication', [
-                'error' => 'Champs invalides, réessayer!'
+                'errors' => 'Champs invalides, réessayer!'
             ]);
         }
 
@@ -43,7 +44,7 @@ class AuthenticationController extends Controller
 
         if (!$user) {
             return $this->render('PasswordManager/authentication', [
-                'error' => 'Nom d utilisateur ou mot de passe incorrect'
+                'errors' => 'Nom d utilisateur ou mot de passe incorrect'
             ]);
         }
 
@@ -55,16 +56,17 @@ class AuthenticationController extends Controller
     /**
      * @throws DateMalformedStringException
      * @throws RandomException
+     * @throws Exception
      */
     #[Post("/register")]
     public function register(): Response
     {
         $form = $this->buildForm();
-        UserValidator::assert($form);
+//        UserValidator::assert($form);
 
         if (!$form->verify()) {
             return $this->render('PasswordManager/authentication', [
-                'error' => 'Veillez remplir tous les champs'
+                'errors' => 'Veillez remplir tous les champs'
             ]);
         }
 
