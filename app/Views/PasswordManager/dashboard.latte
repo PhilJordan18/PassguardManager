@@ -4,76 +4,78 @@
 {layout layouts/main.latte}
 
 {block content}
-    <div class="container-fluid">
-        <div class="row">
-            {include 'layouts/components/dashboard/nav.latte'}
+    <div class="row g-0">
+        {include 'layouts/components/dashboard/nav.latte'}
 
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                {include 'layouts/components/dashboard/header.latte'}
+        <main class="main-content col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            {include 'layouts/components/dashboard/header.latte'}
 
-                <div class="row mb-4">
-                    <div class="col-md-4">
-                        {include 'layouts/components/dashboard/stats-card.latte', [
-                            'title' => 'Mots de passe',
-                            'value' => '42',
-                            'icon' => 'lock',
-                            'color' => 'primary'
-                        ]}
-                    </div>
-
-                    <div class="col-md-4">
-                        {include 'layouts/components/dashboard/stats-card.latte', [
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    {include 'layouts/components/dashboard/stats-card.latte', [
+                        'title' => 'Mots de passe',
+                        'value' => '42',
+                        'icon' => 'lock',
+                        'color' => 'primary'
+                    ]}
+                </div>
+                <div class="col-md-4">
+                    {include 'layouts/components/dashboard/stats-card.latte', [
                         'title' => 'Faibles',
                         'value' => '5',
                         'icon' => 'alert-triangle',
                         'color' => 'danger'
-                        ]}
-                    </div>
-                    
+                    ]}
                 </div>
+                <div class="col-md-4">
+                    {include 'layouts/components/dashboard/stats-card.latte', [
+                        'title' => 'Moyens',
+                        'value' => '12',
+                        'icon' => 'shield',
+                        'color' => 'warning'
+                    ]}
+                </div>
+            </div>
 
-                <div class="card mb-4">
-                    <div class="card-header bg-primary text-white">
-                        <h5 class="mb-0"> Sécurité des mots de passes</h5>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    {include 'layouts/components/dashboard/password-strength.latte'}
-                                </div>
-
-                                <div class="col-md-6">
-                                    {include 'layouts/components/dashboard/lists/weak-passwords.latte'}
-                                </div>
-                            </div>
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Sécurité des mots de passe</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            {include 'layouts/components/dashboard/password-strength.latte'}
+                        </div>
+                        <div class="col-md-6">
+                            {include 'layouts/components/dashboard/lists/weak-passwords.latte'}
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="card mb-4">
-                    <div class="card-header bg-primary text-white">
-                        <h5 class="mb-0">Activité réçente</h5>
-                        <div class="card-body">
-                            {include 'layouts/components/dashboard/tables/activity.latte'}
-                        </div>
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Activité récente</h5>
+                </div>
+                <div class="card-body">
+                    {include 'layouts/components/dashboard/tables/activity.latte'}
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header bg-white border-bottom">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Mes comptes</h5>
+                        <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#addAccountModal">
+                            <i class="bi bi-plus-circle"></i> Ajouter un compte
+                        </button>
                     </div>
                 </div>
-
-                <div class="card">
-                    <div class="card-header bg-white border-bottom">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="mb-0">Mes comptes</h5>
-                            <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#addAccountModal">
-                                <i class="bi bi-plus-circle"></i> Ajouter un compte
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="card-body">
-                        {include 'layouts/components/dashboard/tables/accounts-table.latte'}
-                    </div>
+                <div class="card-body">
+                    {include 'layouts/components/dashboard/tables/accounts-table.latte'}
                 </div>
-            </main>
-        </div>
+            </div>
+        </main>
     </div>
 
     {include 'layouts/components/dashboard/modals/add-account.latte'}
